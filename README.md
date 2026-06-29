@@ -28,12 +28,12 @@
 │   ├── ipcore/               # PLL、DDR3、FIFO 等 IP 配置或封装
 │   └── project/              # FPGA 工程配置文件
 │
-├── fpga_video_bridge/
+├── fpga_bridge_mes50h/
 │   ├── atk_frontend/         # 前端摄像头采集与 UDP 输出工程
 │   ├── ethernet_bridge/      # 以太网/QSGMII/SFP 桥接工程
 │   └── hp_receiver/          # 后端多路接收、DDR3 缓存与 HDMI 显示工程
 │
-├── fpga_hdmi_plate_overlay/
+├── fpga_receiver_hdmi/
 │   ├── source/               # 后端视频接收与 HDMI 显示核心源码
 │   ├── source/plate/         # 车牌候选区域检测、形态学处理和框选叠加模块
 │   ├── constraints/          # 约束文件
