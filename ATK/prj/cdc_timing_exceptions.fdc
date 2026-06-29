@@ -1,0 +1,22 @@
+# =============================================================================
+# CDC / 异步 FIFO 时序例外
+# 依据：关键警告.txt timing report
+#
+# 说明：
+# - cam_pclk、RGMII RX PLL 后的 gmii_rx_clk、DDR3 axi_clk 彼此不是同步时钟。
+# - 图像跨 cam_pclk -> eth_tx_clk 使用 async_fifo_1024x32b。
+# - OV5640 写 DDR3、LCD 读 DDR3 使用原工程 DDR3 FIFO，内部包含异步指针同步。
+# - picture_size 输出的分辨率/DDR 地址上限为低速静态配置，非逐像素高速数据通路。
+# - 本段仅约束 CDC/异步 FIFO/静态配置路径，不放宽同一时钟域内部时序。
+# =============================================================================
+
+# cam_pclk 与以太网 RGMII RX PLL 派生时钟异步。
+set_false_path -from [get_clocks {cam_pclk}] -to [get_clocks {eth_rxc|u_udp_frame_tx_top/u_eth_top/u_gmii_to_rgmii/u_rgmii_rx/U_pll_phase_shift/u_pll_e1/CLKOUT0_Inferred}]
+set_false_path -from [get_clocks {eth_rxc|u_udp_frame_tx_top/u_eth_top/u_gmii_to_rgmii/u_rgmii_rx/U_pll_phase_shift/u_pll_e1/CLKOUT0_Inferred}] -to [get_clocks {cam_pclk}]
+
+# cam_pclk 与 DDR3 axi_clk 异步，原工程通过异步 FIFO 完成写侧跨域。
+set_false_path -from [get_clocks {cam_pclk}] -to [get_clocks {sys_clk|u_pll_clk/u_pll_e1/CLKOUT0_Inferred|u_ddr3_top/u_ddr3_ip/u_pll_50_400/u_pll_e1/CLKOUT2_Inferred}]
+set_false_path -from [get_clocks {sys_clk|u_pll_clk/u_pll_e1/CLKOUT0_Inferred|u_ddr3_top/u_ddr3_ip/u_pll_50_400/u_pll_e1/CLKOUT2_Inferred}] -to [get_clocks {cam_pclk}]
+
+# clk_50m/sys_clk PLL 域到 DDR3 axi_clk 的 picture_size/地址上限等低速静态配置路径。
+set_false_path -from [get_clocks {sys_clk|u_pll_clk/u_pll_e1/CLKOUT0_Inferred}] -to [get_clocks {sys_clk|u_pll_clk/u_pll_e1/CLKOUT0_Inferred|u_ddr3_top/u_ddr3_ip/u_pll_50_400/u_pll_e1/CLKOUT2_Inferred}]

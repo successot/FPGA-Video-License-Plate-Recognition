@@ -1,0 +1,48 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Logs and runtime outputs
+*.log
+logs/
+runs/
+wandb/
+outputs/
+output/
+tmp/
+temp/
+cache/
+.cache/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+
+# Large ML artifacts - use Git LFS or GitHub Releases when needed
+*.onnx
+*.rknn
+*.engine
+*.bin
+*.npy
+*.npz
+
+# Optional: uncomment before publishing if you do not want weights in Git history
+# *.pt
+# *.pth
+# *.ckpt

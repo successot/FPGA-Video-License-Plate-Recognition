@@ -1,0 +1,39 @@
+--/example_design                                //ʵļ
+  -- /bench                                            //_top_tb.vddrģ
+     -- /mem                                          //ddrģ
+        -- ddr3.v                                       //ddr3ģ
+        -- ddr3_parameters.vh                  //ddr3ģ͵ļ
+  -- /rtl                                                 //ʵRTLļHMIC IPĴļ
+     -- test_ddr.v                                    //Example DesignļIPΧģ
+     -- prbs15_64bit_v1_0.v                     //prbsģ飬ڲ
+     -- prbs31_128bit_v1_0.v                   //prbsģ飬ڲ
+     -- axi_bist_top_v1_0.v                      //bistģ鶥
+     -- test_main_ctrl_v1_0.v                   //AXIģ飬ڲдָ
+     -- test_rd_ctrl_v1_0.v                       //AXI ӿڵĶģ飬ƶָͼ
+     -- test_wr_ctrl_v1_0.v                      //AXI ӿڵдģ飬дָͲд
+     -- uart_rd_lock.v                            //ڶ
+     -- /uart_ctrl_32bit                          //ģ
+        -- ipsxb_clk_gen_32bit.v              //ģ
+        -- ipsxb_cmd_parser_32bit.v        //ģ
+        -- ipsxb_seu_rs232_intf.v             //ģ
+        -- ipsxb_seu_uart_rx.v                 //ģ
+        -- ipsxb_seu_uart_tx.v                 //ģ
+        -- ipsxb_uart_ctrl_32bit.v             //ģ
+        -- ipsxb_uart_ctrl_top_32bit.v      //ģ
+        -- ipsxb_ver_ctrl_32bit.v              //ģ
+--/pnr                                                //IP Example Designۺϲֲ߹
+     -- ddr_test.fdc                               //PDSԼļ
+     -- prj_name.pds                             //IP Example Design PDSļ
+--/rtl                                                  //IPƴ
+  -- /pll                                               //PLLģĴ
+  -- /ddrphy                                       //PHY
+  -- /mcdq_ctrl                                   //controllerͷֲʽfifo
+--/sim                                               //simulationĿ¼
+  -- /modelsim
+      -- sim.tcl                                     //ڷе.tclļ
+      -- sim_file_list.f                           //ڷfilelist
+  -- /vcs
+      -- makefile                                //ڷе.tclļ
+      -- sim_file_list.f                          //ڷfilelist
+--/sim_lib                                        //simulation
+  -- /rtl                                           //controller+phy

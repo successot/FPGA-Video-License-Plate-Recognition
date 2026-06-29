@@ -1,0 +1,29 @@
+﻿* text=auto
+
+*.v     text eol=lf
+*.vh    text eol=lf
+*.sv    text eol=lf
+*.vp    text eol=lf
+*.vhdl  text eol=lf
+*.fdc   text eol=lf
+*.pds   text eol=lf
+*.tcl   text eol=lf
+*.f     text eol=lf
+*.mem   text eol=lf
+*.txt   text eol=lf
+*.md    text eol=lf
+*.py    text eol=lf
+*.json  text eol=lf
+*.yml   text eol=lf
+*.yaml  text eol=lf
+*.sh    text eol=lf
+
+*.bat   text eol=crlf
+*.cmd   text eol=crlf
+
+*.zip   binary
+*.pt    binary
+*.pth   binary
+*.rknn  binary
+*.bin   binary
+*.dat   binary

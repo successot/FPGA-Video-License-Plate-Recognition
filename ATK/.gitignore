@@ -1,0 +1,56 @@
+# PDS/Fabric generated outputs
+prj/compile/
+prj/synthesize/
+prj/device_map/
+prj/place_route/
+prj/report_timing/
+prj/generate_bitstream/
+prj/constraint_check/
+prj/constraint_backup/
+prj/log/
+prj/logbackup/
+
+# Logs and runtime files
+*.log
+stdout.log
+stderr.log
+pds.log
+run.log
+multiseed_summary.csv
+
+# Bitstream / generated implementation artifacts
+*.sbit
+*.smsk
+*.bgr
+*.adf
+*.db
+*.snr
+*.dmr
+*.cmr
+*.prr
+*.rtr
+*.prt
+*.pcf
+*.netlist
+*.pvf
+
+# Editor / OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+
+# Keep FPGA IP source/config files
+!prj/ipcore/**/*.v
+!prj/ipcore/**/*.vh
+!prj/ipcore/**/*.sv
+!prj/ipcore/**/*.vhdl
+!prj/ipcore/**/*.idf
+!prj/ipcore/**/*.fdc
+!prj/ipcore/**/*.f
+!prj/ipcore/**/*.pds
+!prj/ipcore/**/*.tcl
+!prj/ipcore/**/*.txt
+!prj/ipcore/**/.settings
+!prj/ipcore/**/.last_generated
